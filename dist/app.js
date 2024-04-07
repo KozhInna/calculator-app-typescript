@@ -16,13 +16,11 @@ function clearAll() {
     sign = "";
     display.textContent = "0";
     buttons.forEach((button) => { button.classList.remove("active"); });
-    console.log("clear");
 }
 clearButton.addEventListener("click", clearAll);
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const value = button.textContent;
-        // console.log(operators.includes(value), value)
         if (numbers.includes(value) && sign === "" && b === "") {
             if ((a === null || a === void 0 ? void 0 : a.length) === 11)
                 return;
@@ -32,8 +30,6 @@ buttons.forEach((button) => {
             }
             a += value;
             display.textContent = a;
-            console.log("value", value);
-            console.log("a", a, "b", b, "sign", sign);
         }
         if (operators.includes(value) && a !== "" && b === "") {
             sign = "";
@@ -41,8 +37,6 @@ buttons.forEach((button) => {
             display.textContent = a;
             buttons.forEach((button) => { button.classList.remove("active"); });
             button.classList.add("active");
-            console.log(button.classList);
-            console.log("a", a, "b", b, "sign", sign);
             return;
         }
         if (numbers.includes(value) && a !== "" && sign !== "") {
@@ -50,8 +44,6 @@ buttons.forEach((button) => {
                 return;
             b += value;
             display.textContent = b;
-            console.log("value", value);
-            console.log("a", a, "b", b, "sign", sign);
         }
     });
 });
@@ -82,7 +74,6 @@ function calcResult() {
         b = "";
         display.textContent = a;
         buttons.forEach((button) => { button.classList.remove("active"); });
-        console.log("a", a, "b", b, "sign", sign);
     }
     switch (sign) {
         case "+":
