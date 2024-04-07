@@ -2,6 +2,7 @@ let a: string | null = "";
 let b: string | null = "";
 let sign: string | null = "";
 let result:number = 0;
+let isResult:boolean = false;
 
 const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 const operators = ["+", "-", "x", "/"];
@@ -31,8 +32,11 @@ buttons.forEach((button) => {
     // console.log(operators.includes(value), value)
    
     if (numbers.includes(value) && sign === "" && b === "") {
-      
       if(a?.length === 11) return;
+      if(isResult){
+        a = "";
+        isResult = false;
+      }
       a += value;
       display.textContent = a;
       console.log("value",value)
@@ -67,6 +71,7 @@ equalButton.addEventListener("click", () => {
   }
   calcResult();
   sign = "";
+  isResult = true;
   })
   
 buttons.forEach((button) => {

@@ -3,6 +3,7 @@ let a = "";
 let b = "";
 let sign = "";
 let result = 0;
+let isResult = false;
 const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 const operators = ["+", "-", "x", "/"];
 const clearButton = document.querySelector(".clear");
@@ -25,6 +26,10 @@ buttons.forEach((button) => {
         if (numbers.includes(value) && sign === "" && b === "") {
             if ((a === null || a === void 0 ? void 0 : a.length) === 11)
                 return;
+            if (isResult) {
+                a = "";
+                isResult = false;
+            }
             a += value;
             display.textContent = a;
             console.log("value", value);
@@ -56,6 +61,7 @@ equalButton.addEventListener("click", () => {
     }
     calcResult();
     sign = "";
+    isResult = true;
 });
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
