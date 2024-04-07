@@ -5,4 +5,10 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgb(226 232 240);
+  font-family: "Courier New", Courier, monospace;
+  ;
+}
+.active {
+  background-color: rgb(20, 94, 243);
+
 }
